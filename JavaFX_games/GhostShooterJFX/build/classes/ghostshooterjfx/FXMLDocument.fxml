@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ghostshooterjfx.FXMLDocumentController">
+   <children>
+      <ImageView fx:id="ghost" fitHeight="70.0" fitWidth="70.0" layoutX="-300.0" layoutY="239.0" onMouseClicked="#ghostShot" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ghost1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="scoreLabel" layoutX="14.0" layoutY="64.0" prefHeight="40.0" prefWidth="149.0" text="Score: 0" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="149.0" text="Time Left" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="timeLeft" layoutX="136.0" layoutY="21.0" prefHeight="27.0" prefWidth="617.0" progress="1.0" />
+      <Label fx:id="gameStartLabel" alignment="CENTER" layoutY="119.0" onMouseClicked="#startGame" prefHeight="381.0" prefWidth="800.0" text="Click to start" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="gameOverLabel" alignment="CENTER" layoutY="119.0" onMouseClicked="#startGame" prefHeight="381.0" prefWidth="800.0" text="Game Over &#10;Click to retry" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
