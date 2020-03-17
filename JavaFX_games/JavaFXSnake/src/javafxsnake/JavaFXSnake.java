@@ -73,6 +73,7 @@ public class JavaFXSnake extends Application implements Initializable {
         newTail.setStroke(snakeHead.getStroke());
         newTail.setStrokeWidth(snakeHead.getStrokeWidth());
         newTail.setStrokeType(snakeHead.getStrokeType());
+        newTail.setEffect(snakeHead.getEffect());
         newTail.setArcHeight(20);
         newTail.setArcWidth(20);
         newTail.setLayoutX(0);
@@ -231,7 +232,10 @@ public class JavaFXSnake extends Application implements Initializable {
                         button.setVisible(true);
                         button.requestFocus();
                     }
-                    else{
+                    else{   
+                        
+                        // MOVE THE SNAKE HEAD
+                        
                         snakeHead.setTranslateX(facePosX);
                         snakeHead.setTranslateY(facePosY);
                     }
@@ -247,19 +251,19 @@ public class JavaFXSnake extends Application implements Initializable {
 
                     }
 
-                    // MOVE THE SNAKE HEAD
+                    // SNAKE ROTATES FROM ONE WALL TO THE OPPOSITE WALL
                     
                     if (snakeHead.getTranslateX() < 0) {
-                        snakeHead.setTranslateX(GRID_MAX_X * BLOCK_SIZE);
+                        snakeHead.setTranslateX((GRID_MAX_X - 1) * BLOCK_SIZE);
                     }
-                    if (snakeHead.getTranslateX() > GRID_MAX_X * BLOCK_SIZE) {
-                        snakeHead.setTranslateX(-BLOCK_SIZE);
+                    if (snakeHead.getTranslateX() > (GRID_MAX_X - 1) * BLOCK_SIZE) {
+                        snakeHead.setTranslateX(0);
                     }
                     if (snakeHead.getTranslateY() < 0) {
-                        snakeHead.setTranslateY(GRID_MAX_Y * BLOCK_SIZE);
+                        snakeHead.setTranslateY((GRID_MAX_Y - 1) * BLOCK_SIZE);
                     }
-                    if (snakeHead.getTranslateY() > GRID_MAX_Y * BLOCK_SIZE) {
-                        snakeHead.setTranslateY(-BLOCK_SIZE);
+                    if (snakeHead.getTranslateY() > (GRID_MAX_Y - 1) * BLOCK_SIZE) {
+                        snakeHead.setTranslateY(0);
                     }
                 }
                 else{
