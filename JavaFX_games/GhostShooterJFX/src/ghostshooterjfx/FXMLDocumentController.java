@@ -8,7 +8,10 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -18,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
+import javafx.util.Duration;
 
 /**
  *
@@ -30,7 +34,9 @@ public class FXMLDocumentController implements Initializable {
     private boolean gameOver = false;
     private int score = 0;
     private double time = 0;
-
+    
+    Timeline timeline = new Timeline();
+    
     @FXML
     private ImageView ghost;
     @FXML
@@ -79,11 +85,9 @@ public class FXMLDocumentController implements Initializable {
         
         gameOverLabel.setLayoutX(-3000);
 
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask(){
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(0.01), new EventHandler<ActionEvent>(){
             @Override
-            public void run() {
-                
+            public void handle(ActionEvent event) {
                 if(time > 0){
                     timeLeft.setProgress(time);
                     time -= 0.01;
@@ -97,7 +101,30 @@ public class FXMLDocumentController implements Initializable {
                 }
             }
             
-        }, 0, 10);
+        }));
+        
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+        
+//        Timer timer = new Timer();
+//        timer.scheduleAtFixedRate(new TimerTask(){
+//            @Override
+//            public void run() {
+//                
+//                if(time > 0){
+//                    timeLeft.setProgress(time);
+//                    time -= 0.01;
+//                }
+//                else{
+//                    if(gameStarted && !gameOver){
+//                        gameOverLabel.setLayoutX(0);
+//                        ghost.setLayoutX(-300);
+//                        gameOver = true;
+//                    }
+//                }
+//            }
+//            
+//        }, 0, 10);
         
     
         
