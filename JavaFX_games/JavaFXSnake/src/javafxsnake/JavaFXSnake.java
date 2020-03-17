@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.Timer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -63,7 +62,6 @@ public class JavaFXSnake extends Application implements Initializable {
     
     private List<List> snakePos = new ArrayList();
     
-    Timer timer = new Timer();
     Random random = new Random();
     Stage primaryStage = new Stage();
     
